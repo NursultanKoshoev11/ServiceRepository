@@ -25,3 +25,11 @@ func (service *UserService) Register(name, email, password string) (*models.User
 func (service *UserService) GetUserByEmail(email string) (*models.User, error) {
 	return service.repository.GetByEmail(email)
 }
+
+func (service *UserService) GetUserByName(name string) (*models.User, error) {
+	return service.repository.GetByName(name)
+}
+
+func (service *UserService) GetUserByID(ID int64) (*models.User, error) {
+	return service.repository.GetByID(ID)
+}

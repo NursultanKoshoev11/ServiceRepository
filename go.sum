@@ -4,6 +4,8 @@ github.com/Microsoft/go-winio v0.6.2 h1:F2VQgta7ecxGYO8k3ZZz3RS8fVIXVxONVUPlNERo
 github.com/Microsoft/go-winio v0.6.2/go.mod h1:yd8OoFMLzJbo9gZq8j5qaps8bJ9aShtEA8Ipt1oGCvU=
 github.com/NursultanKoshoev11/GeneralProtoContracts v0.0.0-20251128125223-b273bdb0cf8c h1:/bbnxgVVxyiFvH2wy4SIdWu5wNnVD4J+VNgJLjMEFss=
 github.com/NursultanKoshoev11/GeneralProtoContracts v0.0.0-20251128125223-b273bdb0cf8c/go.mod h1:Tb91uWOvFIWx+7dQNJ9hE2Hx19oC0O5wYqtCw32lRGs=
+github.com/NursultanKoshoev11/GeneralProtoContracts v0.0.0-20251130114151-19737ba2e855 h1:eqhuohIvry/1MjV9ebhGI811/LMHjisAhC8jzSiBgwM=
+github.com/NursultanKoshoev11/GeneralProtoContracts v0.0.0-20251130114151-19737ba2e855/go.mod h1:Tb91uWOvFIWx+7dQNJ9hE2Hx19oC0O5wYqtCw32lRGs=
 github.com/containerd/errdefs v1.0.0 h1:tg5yIfIlQIrxYtu9ajqY42W3lpS19XqdxRQeEwYG8PI=
 github.com/containerd/errdefs v1.0.0/go.mod h1:+YBYIdtsnF4Iw6nWZhJcqGSg/dwvV7tyJ/kCkyJ2k+M=
 github.com/containerd/errdefs/pkg v0.3.0 h1:9IKJ06FvyNlexW690DXuQNx2KA2cUJXx151Xdx3ZPPE=

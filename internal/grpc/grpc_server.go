@@ -11,16 +11,69 @@ import (
 )
 
 type gRPCService struct {
-	grpcrepo.UnimplementedUserServiceServer
-	service *service.UserService
+	grpcrepo.UnimplementedRepositoryServiceServer
+	userservice *service.UserService
 }
 
-func (s *gRPCService) CreateUser(ctx context.Context, req *grpcrepo.CreateUserRequest) (*grpcrepo.UserResponse, error) {
-
-	user, err := s.service.Register(req.Name, req.Email, req.Password)
+func (grpcservice *gRPCService) GetUserByEmail(ctx context.Context, req *grpcrepo.GetUserByEmailRequest) (*grpcrepo.UserResponse, error) {
+	user, err := grpcservice.userservice.GetUserByEmail(req.Email)
 
 	if err != nil {
-		log.Println("cant to register ", err)
+		return nil, err
+	}
+
+	return &grpcrepo.UserResponse{
+		User: &grpcrepo.User{
+			Id:       int32(user.ID),
+			Name:     user.Name,
+			Email:    user.Email,
+			Password: user.Password,
+		},
+	}, nil
+}
+
+func (grpcservice *gRPCService) GetUserByID(ctx context.Context, req *grpcrepo.GetUserByIDRequest) (*grpcrepo.UserResponse, error) {
+
+	user, err := grpcservice.userservice.GetUserByID(int64(req.Id))
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &grpcrepo.UserResponse{
+		User: &grpcrepo.User{
+			Id:       int32(user.ID),
+			Name:     user.Name,
+			Email:    user.Email,
+			Password: user.Password,
+		},
+	}, nil
+
+}
+
+func (grpcservice *gRPCService) GetUserByName(ctx context.Context, req *grpcrepo.GetUserByNameRequest) (*grpcrepo.UserResponse, error) {
+
+	user, err := grpcservice.userservice.GetUserByName(req.Name)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &grpcrepo.UserResponse{
+		User: &grpcrepo.User{
+			Id:       int32(user.ID),
+			Name:     user.Name,
+			Email:    user.Email,
+			Password: user.Password,
+		},
+	}, nil
+}
+
+func (grpcservice *gRPCService) CreateUser(ctx context.Context, req *grpcrepo.CreateUserRequest) (*grpcrepo.UserResponse, error) {
+
+	user, err := grpcservice.userservice.Register(req.Name, req.Email, req.Password)
+
+	if err != nil {
 		return nil, err
 	}
 
@@ -41,8 +94,8 @@ func RunGRPCServer(svc *service.UserService) {
 	}
 
 	grpcServer := grpc.NewServer()
-	grpcrepo.RegisterUserServiceServer(grpcServer, &gRPCService{
-		service: svc,
+	grpcrepo.RegisterRepositoryServiceServer(grpcServer, &gRPCService{
+		userservice: svc,
 	})
 
 	log.Println("gRPC server running on :50051")

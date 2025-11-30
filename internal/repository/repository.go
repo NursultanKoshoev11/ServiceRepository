@@ -12,6 +12,7 @@ type UserRepository interface {
 	Create(user *models.User) error
 	GetByID(id int64) (*models.User, error)
 	GetByEmail(email string) (*models.User, error)
+	GetByName(name string) (*models.User, error)
 }
 
 func ConnectToSql() *sql.DB {

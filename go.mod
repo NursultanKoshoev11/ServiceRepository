@@ -3,7 +3,7 @@ module servicerepository
 go 1.25.4
 
 require (
-	github.com/NursultanKoshoev11/GeneralProtoContracts v0.0.0-20251128125223-b273bdb0cf8c
+	github.com/NursultanKoshoev11/GeneralProtoContracts v0.0.0-20251130114151-19737ba2e855
 	github.com/golang-migrate/migrate/v4 v4.19.0
 	github.com/lib/pq v1.10.9
 	google.golang.org/grpc v1.77.0

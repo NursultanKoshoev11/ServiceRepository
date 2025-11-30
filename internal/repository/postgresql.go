@@ -37,3 +37,13 @@ func (r *PostgresUserRepository) GetByEmail(email string) (*models.User, error) 
 	}
 	return &u, nil
 }
+
+func (r *PostgresUserRepository) GetByName(name string) (*models.User, error) {
+	row := r.db.QueryRow("SELECT id, name, email, password FROM users WHERE name=$1", name)
+	var u models.User
+	err := row.Scan(&u.ID, &u.Name, &u.Email, &u.Password)
+	if err != nil {
+		return nil, err
+	}
+	return &u, nil
+}
