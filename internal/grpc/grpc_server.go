@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 	"net"
+	"servicerepository/config"
 	"servicerepository/internal/service"
 
 	grpcrepo "github.com/NursultanKoshoev11/GeneralProtoContracts/generated/repository"
@@ -87,8 +88,8 @@ func (grpcservice *gRPCService) CreateUser(ctx context.Context, req *grpcrepo.Cr
 	}, nil
 }
 
-func RunGRPCServer(svc *service.UserService) {
-	lis, err := net.Listen("tcp", ":50051")
+func RunGRPCServer(cfg *config.Config, svc *service.UserService) {
+	lis, err := net.Listen("tcp", cfg.GRPCPort)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}

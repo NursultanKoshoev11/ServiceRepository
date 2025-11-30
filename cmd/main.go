@@ -1,6 +1,7 @@
 package main
 
 import (
+	"servicerepository/config"
 	"servicerepository/internal/grpc"
 	"servicerepository/internal/repository"
 	"servicerepository/internal/service"
@@ -10,12 +11,14 @@ import (
 
 func main() {
 
-	db := repository.ConnectToSql()
+	cfg := config.LoadConfig()
+
+	db := repository.ConnectToSql(cfg)
 
 	repo := repository.NewPostgresUserRepository(db)
 	svc := service.NewUserService(repo)
 
-	grpc.RunGRPCServer(svc)
+	grpc.RunGRPCServer(cfg, svc)
 
 	//http.HandleFunc("/register", handler.Register)
 

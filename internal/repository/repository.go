@@ -15,11 +15,10 @@ type UserRepository interface {
 	GetByName(name string) (*models.User, error)
 }
 
-func ConnectToSql() *sql.DB {
-	cfg := config.LoadConfig()
+func ConnectToSql(cfg *config.Config) *sql.DB {
 
 	dbURL := "postgres://" + cfg.DBUser + ":" + cfg.DBPassword + "@" + cfg.DBHost + ":" + cfg.DBPort + "/" + cfg.DBName + "?sslmode=disable"
-	migrations.RunMigrations("file://internal/migrations", dbURL)
+	migrations.RunMigrations(cfg.MigrationPath, dbURL)
 
 	dsn := "host=" + cfg.DBHost + " port=" + cfg.DBPort + " user=" + cfg.DBUser + " password=" + cfg.DBPassword + " dbname=" + cfg.DBName + " sslmode=disable"
 	db, err := sql.Open(cfg.DBDriver, dsn)
