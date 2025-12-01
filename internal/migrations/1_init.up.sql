@@ -1,6 +1,25 @@
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL
+CREATE TABLE roles (
+    id SMALLINT PRIMARY KEY,
+    name VARCHAR(30) UNIQUE NOT NULL
 );
+
+CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role_id SMALLINT NOT NULL DEFAULT 0 REFERENCES roles(id)
+);
+
+CREATE TABLE profiles (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT UNIQUE NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    name VARCHAR(100),
+    avatar VARCHAR(255),
+    bio TEXT,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+INSERT INTO roles (id, name) VALUES
+(0, 'USER'),
+(1, 'MODERATOR'),
+(2, 'ADMIN');

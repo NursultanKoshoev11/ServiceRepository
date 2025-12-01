@@ -19,9 +19,4 @@ func main() {
 	svc := service.NewUserService(repo)
 
 	grpc.RunGRPCServer(cfg, svc)
-
-	//http.HandleFunc("/register", handler.Register)
-
-	//log.Println("Server running on :8080")
-	//http.ListenAndServe(":8080", nil)
 }

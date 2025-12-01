@@ -17,6 +17,8 @@ func RunMigrations(migrationsPath, dbURL string) {
 		log.Fatal(err)
 	}
 
+	log.Println(migrateData)
+
 	if err := migrateData.Up(); err != nil && err != migrate.ErrNoChange {
 		log.Fatal(err)
 	}
