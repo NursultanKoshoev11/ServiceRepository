@@ -6,6 +6,8 @@ github.com/NursultanKoshoev11/GeneralProtoContracts v0.0.0-20251130114151-19737b
 github.com/NursultanKoshoev11/GeneralProtoContracts v0.0.0-20251130114151-19737ba2e855/go.mod h1:Tb91uWOvFIWx+7dQNJ9hE2Hx19oC0O5wYqtCw32lRGs=
 github.com/NursultanKoshoev11/GeneralProtoContracts v0.0.0-20251201130104-ed3dae6aefc4 h1:0qVGkEMKy2anzATVDTjhGrBT5o8R8BFZLSFUWcNWCVE=
 github.com/NursultanKoshoev11/GeneralProtoContracts v0.0.0-20251201130104-ed3dae6aefc4/go.mod h1:Tb91uWOvFIWx+7dQNJ9hE2Hx19oC0O5wYqtCw32lRGs=
+github.com/NursultanKoshoev11/GeneralProtoContracts v0.0.0-20251202122736-42fe45e70e81 h1:RswIZBihDKipwxVhGrvhAdViZijXgUJY0OCv9z8Ayuc=
+github.com/NursultanKoshoev11/GeneralProtoContracts v0.0.0-20251202122736-42fe45e70e81/go.mod h1:Tb91uWOvFIWx+7dQNJ9hE2Hx19oC0O5wYqtCw32lRGs=
 github.com/containerd/errdefs v1.0.0 h1:tg5yIfIlQIrxYtu9ajqY42W3lpS19XqdxRQeEwYG8PI=
 github.com/containerd/errdefs v1.0.0/go.mod h1:+YBYIdtsnF4Iw6nWZhJcqGSg/dwvV7tyJ/kCkyJ2k+M=
 github.com/containerd/errdefs/pkg v0.3.0 h1:9IKJ06FvyNlexW690DXuQNx2KA2cUJXx151Xdx3ZPPE=
